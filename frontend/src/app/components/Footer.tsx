@@ -1,5 +1,5 @@
 import React from "react";
-import { FooterProps } from "@/types/navbar";
+import { FooterProps } from "@/types/footer";
 
 const Footer: React.FC<FooterProps> = ({ footeritems }) => {
   const footer = footeritems[0];

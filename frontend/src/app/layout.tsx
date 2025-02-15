@@ -1,4 +1,5 @@
-import { NavbarType, FooterType } from "@/types/navbar";
+import { NavbarType } from "@/types/navbar";
+import { FooterType } from "@/types/footer";
 import { client } from "@/sanity/client";
 import Navbar from "./components/Navbar";
 import "./globals.css";

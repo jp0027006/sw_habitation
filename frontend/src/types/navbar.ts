@@ -1,4 +1,3 @@
-// Navbar
 export type NavbarType = {
   _id: string;
   logo: {
@@ -21,23 +20,3 @@ export interface NavbarProps {
   navbaritems: NavbarType[];
 }
 
-// Footer
-export type FooterType = {
-  _id: string;
-  heading: string;
-  emailPlaceholder: string;
-  buttonText: string;
-  socialLinks: {
-    platform: string;
-    url: string;
-  }[];
-  footerLinks: {
-    label: string;
-    link: string;
-  }[];
-  backToTop: boolean;
-};
-
-export interface FooterProps {
-  footeritems: FooterType[];
-}
