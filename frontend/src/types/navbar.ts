@@ -1,17 +1,21 @@
 export type NavbarType = {
-  _id: string;
-  name: string;
-  logo: {
-    asset: {
-      _ref: string;
+    _id: string;
+    logo: {
+      asset: {
+        _ref: string;
+      };
     };
+    logoText: string;
+    menuItems: {
+      title: string;
+      link: string;
+    }[];
+    buttonItems: {
+      btnName: string;
+      btnLink: string;
+    }[];
   };
-  logoText: string;
-  menuItems: {
-    title: string;
-    link: string;
-  }[];
-};
+  
 
 
 export interface NavbarProps {

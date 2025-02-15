@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: black;
+.contactBtn{
+    background-color: rgb(62, 255, 111, 1);
 }

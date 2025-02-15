@@ -1,18 +1,7 @@
-// app/page.tsx
-
-import { NavbarType } from "@/types/navbar";
-import Navbar from "./components/Navbar";
-import { client } from "@/sanity/client";
-
-const NAVBAR_QUERY = `*[_type == "navbar"]`;
-
-
-export default async function Home() {
-  const navbaritems: NavbarType[] = await client.fetch(NAVBAR_QUERY);
-
+export default function HomePage() {
   return (
-    <>
-      <Navbar navbaritems={navbaritems} />
-    </>
+    <div>
+      <h1>Welcome to the Home Page</h1>
+    </div>
   );
 }
