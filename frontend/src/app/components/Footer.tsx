@@ -82,10 +82,7 @@ const Footer: React.FC<FooterProps> = ({ footeritems }) => {
             {/* Back to Top Button */}
             {footer.backToTop && (
               <div className="absolute right-4 xs:right-6 sm:right-8 bottom-6 md:bottom-8 cursor-pointer">
-                <div
-                  //   style={{ backgroundColor: "rgb(62, 255, 111)" }}
-                  className="w-[40px] h-[24px] xs:w-[60px] xs:h-[30px] md:w-[80px] md:h-[40px] lg:w-[104px] lg:h-[56px] rounded-full bg-transparent hover:bg-green-400 border border-theme-green flex items-center justify-center group"
-                >
+                <div className="w-[40px] h-[24px] xs:w-[60px] xs:h-[30px] md:w-[80px] md:h-[40px] lg:w-[104px] lg:h-[56px] rounded-full bg-transparent hover:bg-green-400 border border-theme-green flex items-center justify-center group">
                   <svg
                     width="24"
                     height="24"

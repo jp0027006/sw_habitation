@@ -13,7 +13,6 @@ function urlFor(source: { asset: { _ref: string } }) {
 
 const Navbar = ({ navbaritems }: NavbarProps) => {
   const data = JSON.stringify(navbaritems, null, 2);
-  console.log(data);
 
   return (
     <nav className="bg-white border border-black/10 pt-4 pb-3 sticky right-0 left-0 top-0 z-[1000]">
