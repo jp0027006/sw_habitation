@@ -1,3 +1,5 @@
+import { BlogType } from "./blog";
+
 export type HomepageType = {
     _id: string;
     visitorCount: number;
@@ -8,5 +10,6 @@ export type HomepageType = {
   
   export interface HomepageProps {
     homepageitems: HomepageType[];
+    blogitems: BlogType[];
   }
   

@@ -31,5 +31,21 @@ export default {
       title: "Subtitle",
       description: "A short description below the main title.",
     },
+    {
+      name: 'leftBGImage',
+      type: 'image',
+      title: 'Left Background Image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'rightBGImage',
+      type: 'image',
+      title: 'Right Background Image',
+      options: {
+        hotspot: true,
+      },
+    },
   ],
 };

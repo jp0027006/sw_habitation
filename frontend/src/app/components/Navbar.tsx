@@ -1,5 +1,3 @@
-"use client";
-
 import { NavbarProps } from "@/types/navbar";
 import Link from "next/link";
 import imageUrlBuilder from "@sanity/image-url";
