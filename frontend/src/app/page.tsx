@@ -4,7 +4,7 @@ import { BlogType } from "@/types/blog";
 import Homepage from "./components/Homepage";
 
 const HOMEPAGE_QUERY = `*[_type == "homepage"]`;
-const BLOG_QUERY = `*[_type == "blog"] | order(publishedAt desc) {
+const BLOG_QUERY = `*[_type == "blog"] | order(publishedDate asc)[0...4] {
   _id,
   title,
   slug {
@@ -14,23 +14,32 @@ const BLOG_QUERY = `*[_type == "blog"] | order(publishedAt desc) {
   readTime,
   author->{
     _id,
-    name
+    name,
+    avatar {
+      asset->{
+        _ref,
+        url
+      }
+    }
   },
   excerpt,
   thumbnail {
     asset->{
       _ref,
-      _type
+      url
     }
   },
   content,
   category
 }`;
 
-
 export default async function HomepagePage({}: { children: React.ReactNode }) {
   const homepageitems: HomepageType[] = await client.fetch(HOMEPAGE_QUERY);
   const blogitems: BlogType[] = await client.fetch(BLOG_QUERY);
 
-  return <Homepage homepageitems={homepageitems} blogitems={blogitems} />;
+  return (
+    <>
+      <Homepage homepageitems={homepageitems} blogitems={blogitems} />
+    </>
+  );
 }
