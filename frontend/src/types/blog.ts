@@ -41,3 +41,7 @@ export interface BlogType {
   export interface NewblogProps {
     blogitems: BlogType[];
   }
+
+  export interface MainblogProps {
+    blogitems: BlogType[];
+  }

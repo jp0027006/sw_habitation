@@ -56,7 +56,7 @@ export default function NewBlog({ blogitems }: NewblogProps) {
                     style={{ color: "transparent" }}
                   />
                   <span className="text-theme-charcolBlue70 font-normal text-base md:text-lg lg:text-xl">
-                  {blog.author.name}
+                    {blog.author.name}
                   </span>
                 </div>
               </div>

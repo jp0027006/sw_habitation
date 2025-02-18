@@ -4,7 +4,7 @@ import { BlogType } from "@/types/blog";
 import Homepage from "./components/Homepage";
 
 const HOMEPAGE_QUERY = `*[_type == "homepage"]`;
-const BLOG_QUERY = `*[_type == "blog"] | order(publishedDate asc)[0...4] {
+const BLOG_QUERY = `*[_type == "blog"] | order(publishedDate asc) {
   _id,
   title,
   slug {
