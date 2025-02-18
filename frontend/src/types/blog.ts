@@ -1,4 +1,4 @@
-import { AuthorType } from "./author"
+import { AuthorType } from "./author";
 import { ContentFilterType } from "./contentfilter";
 
 interface ContentBlock {
@@ -34,21 +34,24 @@ export interface BlogType {
   content: ContentBlock[];
   category: string;
 }
-  
-  export interface BlogProps {
-    blogitems: BlogType[];
-  }
-  
-  export interface NewblogProps {
-    blogitems: BlogType[];
-  }
 
-  export interface MainblogProps {
-    blogitems: BlogType[];
-  }
+export interface BlogProps {
+  blogitems: BlogType[];
+}
 
-  export interface BlogViewProps {
-    contentfilteritems: ContentFilterType[];
-    blogitems: BlogType[];
-  }
-  
+export interface NewblogProps {
+  blogitems: BlogType[];
+}
+
+export interface MainblogProps {
+  blogitems: BlogType[];
+}
+
+export interface BlogViewProps {
+  contentfilteritems: ContentFilterType[];
+  blogitems: BlogType[];
+}
+
+export interface LatestPostProps {
+  restOfRemainingBlogs: BlogType[];
+}

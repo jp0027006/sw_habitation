@@ -1,22 +1,18 @@
 import { MainblogProps } from "@/types/blog";
+import { PortableText } from "next-sanity";
 import Link from "next/link";
 import React from "react";
+import LatestPost from "./LatestPost";
 
 export default function Blogs({ blogitems }: MainblogProps) {
-  const firstFourBlogs = blogitems.slice(0, 4);
-
-  // // Get the first blog
-  // const firstBlog = firstFourBlogs[0];
-
-  // // Get the remaining blogs (all blogs except the first)
-  // const remainingBlogs = firstFourBlogs.slice(1);
   const [firstBlog, ...remainingBlogs] = blogitems;
-  
+  const firstThreeRemainingBlogs = remainingBlogs.slice(0, 3);
+  const restOfRemainingBlogs = remainingBlogs.slice(3);
+
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr]">
         <div className="lg:pr-[40px] xl:pr-[60px] 2xl:pr-[73px]">
-          {/* Display the first blog */}
           <div className="flex flex-col gap-5 lg:gap-6 xl:gap-8">
             <div className="flex items-center gap-2 text-theme-charcolBlue font-regular text-base sm:text-lg lg:text-xl opacity-70 !leading-[20px]">
               <span>
@@ -53,6 +49,30 @@ export default function Blogs({ blogitems }: MainblogProps) {
             >
               {firstBlog.title}
             </Link>
+            <div className="-mt-3 lg:mt-0">
+              <PortableText
+                value={firstBlog.excerpt}
+                components={{
+                  block: {
+                    normal: ({ children }) => (
+                      <p className="text-base sm:text-lg font-normal text-gray-700 leading-relaxed">
+                        {children}
+                      </p>
+                    ),
+                    h1: ({ children }) => (
+                      <h1 className="text-2xl font-semibold text-gray-900 mb-2">
+                        {children}
+                      </h1>
+                    ),
+                    h2: ({ children }) => (
+                      <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                        {children}
+                      </h2>
+                    ),
+                  },
+                }}
+              />
+            </div>
             <div className="flex items-center gap-[12px] md:gap-[15px]">
               <img
                 alt={firstBlog.author.name}
@@ -72,9 +92,9 @@ export default function Blogs({ blogitems }: MainblogProps) {
           </div>
         </div>
 
-        {/* Display the remaining blogs */}
+        {/* Display the first 3 remaining blogs in the same layout */}
         <div className="border-t lg:border-t-0 lg:border-l border-theme-charcolBlue30 pt-[40px] lg:pt-0 mt-[40px] lg:mt-0 lg:pl-[40px] xl:pl-[60px] 2xl:pl-[73px] flex flex-col gap-[56px]">
-          {remainingBlogs.map((blog) => (
+          {firstThreeRemainingBlogs.map((blog) => (
             <div key={blog._id} className="flex flex-col gap-4 lg:gap-6">
               <div className="flex items-center gap-2 text-theme-charcolBlue font-regular text-base sm:text-lg lg:text-xl opacity-70 !leading-[20px]">
                 <span>
@@ -135,6 +155,9 @@ export default function Blogs({ blogitems }: MainblogProps) {
           ))}
         </div>
       </div>
+      {restOfRemainingBlogs.length > 0 && (
+        <LatestPost restOfRemainingBlogs={restOfRemainingBlogs} />
+      )}
     </div>
   );
 }
