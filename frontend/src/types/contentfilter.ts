@@ -16,5 +16,7 @@ export type ButtonType = {
   
   export interface ContentFilterProps {
     contentfilteritems: ContentFilterType[];
+    searchTerm: string;
+    onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   }
   

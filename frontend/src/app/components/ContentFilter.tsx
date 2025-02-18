@@ -1,7 +1,7 @@
 import { ContentFilterProps } from "@/types/contentfilter";
 import React from "react";
 
-function ContentFilter({ contentfilteritems }: ContentFilterProps) {
+function ContentFilter({ contentfilteritems, searchTerm, onSearchChange }: ContentFilterProps) {
   const contentfilter = contentfilteritems[0];
   return (
     <>
@@ -40,7 +40,9 @@ function ContentFilter({ contentfilteritems }: ContentFilterProps) {
               className="w-full pr-12 py-2 pl-[45px] lg:pl-[50px] bg-[#0F172A0A] rounded-full text-lg min-w-[251px] min-h-[40px] md:min-h-[45px] lg:min-h-[52px] placeholder:text-[#0F172A] placeholder:opacity-30 placeholder:font-semibold focus-visible:outline-none"
               id="search"
               type="search"
-              placeholder={contentfilter.search.searchPlaceholder || "Search"}
+              value={searchTerm} // Bind the search input value
+              onChange={onSearchChange} // Update the search term on input change
+              placeholder={contentfilter.search.searchPlaceholder}
               autoComplete="off"
             />
           </div>
