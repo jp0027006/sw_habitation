@@ -28,50 +28,35 @@ export default function MainBlogs({ blogitems }: MainblogProps) {
               <span>-</span>
               <span>{firstBlog.readTime}</span>
             </div>
-            <Link
-              target="_self"
-              className="block pb-4 sm:pb-0"
-              href={`/blogs/${firstBlog.slug.current}`}
-            >
+            <Link href={`/blog/${firstBlog.slug.current}`} target="_self">
               <img
                 alt={firstBlog.title}
                 loading="lazy"
                 width={98}
                 height={98}
-                decoding="async"
-                data-nimg={1}
                 className="rounded-lg shadow-md border border-gray-200"
                 src={firstBlog.thumbnail.asset.url}
-                style={{ color: "transparent" }}
               />
             </Link>
             <Link
+              href={`/blog/${firstBlog.slug.current}`}
               target="_self"
-              className="text-theme-darkBrown text-3xl lg:text-4xl 2xl:text-5xl font-dm font-semibold !leading-[40px] lg:!leading-[45px] 2xl:!leading-[54px] hover:opacity-50"
-              href={`/blogs/${firstBlog.slug.current}`}
+              className="text-theme-darkBrown text-3xl lg:text-4xl 2xl:text-5xl font-dm font-semibold hover:opacity-50"
             >
               {firstBlog.title}
             </Link>
             <div className="-mt-3 lg:mt-0">
-              {/* Render excerpt using PortableText with Tailwind classes */}
               <PortableText
-                value={firstBlog.excerpt}
+                value={firstBlog.content[0]}
                 components={{
                   block: {
                     normal: ({ children }) => (
-                      <p className="text-base sm:text-lg font-normal text-gray-700 leading-relaxed">
+                      <p className="sm:text-lg text-xl font-normal text-gray-900 leading-relaxed mb-2">
                         {children}
                       </p>
                     ),
                     h1: ({ children }) => (
-                      <h1 className="text-2xl font-semibold text-gray-900 mb-2">
-                        {children}
-                      </h1>
-                    ),
-                    h2: ({ children }) => (
-                      <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                        {children}
-                      </h2>
+                      <h1 className="text-2xl font-semibold text-gray-900 mb-3">{children}</h1>
                     ),
                   },
                 }}
@@ -83,11 +68,8 @@ export default function MainBlogs({ blogitems }: MainblogProps) {
                 loading="lazy"
                 width={40}
                 height={40}
-                decoding="async"
-                data-nimg={1}
                 className="rounded-full text-theme-charcolBlue text-xl font-normal w-8 md:w-10 h-8 md:h-10 object-cover"
                 src={firstBlog.author.avatar?.asset.url || ""}
-                style={{ color: "transparent" }}
               />
               <span className="text-base md:text-lg lg:text-xl text-theme-charcolBlue70 font-normal !leading-[1]">
                 By {firstBlog.author.name}
@@ -113,28 +95,21 @@ export default function MainBlogs({ blogitems }: MainblogProps) {
               </div>
               <div className="flex flex-col-reverse lg:grid lg:grid-cols-[auto_52px] items-start lg:items-center gap-6 w-full justify-between">
                 <a
-                  target="_self"
+                  href={`/blog/${blog.slug.current}`}
                   className="text-theme-darkBrown text-2xl font-dm font-semibold leading-[1.3] hover:opacity-50"
-                  href={`/blogs/${blog.slug.current}`}
+                  target="_self"
                 >
                   {blog.title}
                 </a>
                 <div>
-                  <Link
-                    target="_self"
-                    className="block"
-                    href={`/blogs/${blog.slug.current}`}
-                  >
+                  <Link href={`/blog/${blog.slug.current}`} target="_self">
                     <img
                       alt={blog.title}
                       loading="lazy"
                       width={52}
                       height={52}
-                      decoding="async"
-                      data-nimg={1}
                       className="rounded-lg shadow-md border border-gray-200"
                       src={blog.thumbnail.asset.url}
-                      style={{ color: "transparent" }}
                     />
                   </Link>
                 </div>
@@ -145,11 +120,8 @@ export default function MainBlogs({ blogitems }: MainblogProps) {
                   loading="lazy"
                   width={40}
                   height={40}
-                  decoding="async"
-                  data-nimg={1}
                   className="rounded-full text-theme-charcolBlue w-8 md:w-10 h-8 md:h-10"
                   src={blog.author.avatar?.asset.url || ""}
-                  style={{ color: "transparent" }}
                 />
                 <span className="text-theme-charcolBlue70 font-normal text-base md:text-lg lg:text-xl !leading-[24px]">
                   By {blog.author.name}

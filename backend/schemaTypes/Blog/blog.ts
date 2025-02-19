@@ -1,84 +1,71 @@
-export default {
-    name: 'blog',
-    type: 'document',
-    title: 'Blog Post',
-    fields: [
-      {
-        name: 'title',
-        type: 'string',
-        title: 'Title',
+import {defineType} from 'sanity'
+
+export default defineType({
+  name: 'blog',
+  title: 'Blog',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 200,
       },
-      {
-        name: 'slug',
-        type: 'slug',
-        title: 'Slug',
-        options: {
-          source: 'title',
-          maxLength: 96,
-        },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'publishedDate',
+      type: 'datetime',
+      title: 'Published Date',
+    },
+    {
+      name: 'readTime',
+      type: 'string',
+      title: 'Read Time',
+    },
+    {
+      name: 'author',
+      type: 'reference',
+      title: 'Author',
+      to: [{type: 'author'}],
+    },
+    {
+      name: 'thumbnail',
+      type: 'image',
+      title: 'Thumbnail',
+      options: {
+        hotspot: true,
       },
-      {
-        name: 'publishedDate',
-        type: 'datetime',
-        title: 'Published Date',
-      },
-      {
-        name: 'readTime',
-        type: 'string',
-        title: 'Read Time',
-      },
-      {
-        name: 'author',
-        type: 'reference',
-        title: 'Author',
-        to: [{ type: 'author' }],
-      },
-      {
-        name: 'excerpt',
-        type: 'array',
-        title: 'Excerpt',
-        of: [{ type: 'block' }],
-      },
-      {
-        name: 'thumbnail',
-        type: 'image',
-        title: 'Thumbnail',
-        options: {
-          hotspot: true,
-        },
-      },
-      {
-        name: 'content',
-        type: 'array',
-        title: 'Content',
-        of: [
-          {
-            type: 'object',
-            name: 'contentBlock',
-            fields: [
-              {
-                name: 'description',
-                type: 'array',
-                title: 'Description',
-                of: [{ type: 'block' }],
-              },
-              {
-                name: 'image',
-                type: 'image',
-                title: 'Image',
-                options: {
-                  hotspot: true,
-                },
-              },
-            ],
+    },
+    {
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        {type: 'block'},
+        {type: 'image', options: {hotspot: true}},
+        {
+          type: 'code',
+          title: 'Code Block',
+          options: {
+            language: 'javascript',
+            withFilename: true,
           },
-        ],
-      },
-      {
-        name: 'category',
-        type: 'string',
-        title: 'Category',
-      },
-    ],
-  };
-  
+        },
+      ],
+    },
+    {
+      name: 'category',
+      type: 'string',
+      title: 'Category',
+    },
+  ],
+})

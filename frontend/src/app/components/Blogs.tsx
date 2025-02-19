@@ -28,7 +28,7 @@ export default function Blogs({ blogitems }: MainblogProps) {
             <Link
               target="_self"
               className="block pb-4 sm:pb-0"
-              href={`/blogs/${firstBlog.slug.current}`}
+              href={`/blog/${firstBlog.slug.current}`}
             >
               <img
                 alt={firstBlog.title}
@@ -45,34 +45,10 @@ export default function Blogs({ blogitems }: MainblogProps) {
             <Link
               target="_self"
               className="text-theme-darkBrown text-3xl lg:text-4xl 2xl:text-5xl font-dm font-semibold !leading-[40px] lg:!leading-[45px] 2xl:!leading-[54px] hover:opacity-50"
-              href={`/blogs/${firstBlog.slug.current}`}
+              href={`/blog/${firstBlog.slug.current}`}
             >
               {firstBlog.title}
             </Link>
-            <div className="-mt-3 lg:mt-0">
-              <PortableText
-                value={firstBlog.excerpt}
-                components={{
-                  block: {
-                    normal: ({ children }) => (
-                      <p className="text-base sm:text-lg font-normal text-gray-700 leading-relaxed">
-                        {children}
-                      </p>
-                    ),
-                    h1: ({ children }) => (
-                      <h1 className="text-2xl font-semibold text-gray-900 mb-2">
-                        {children}
-                      </h1>
-                    ),
-                    h2: ({ children }) => (
-                      <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                        {children}
-                      </h2>
-                    ),
-                  },
-                }}
-              />
-            </div>
             <div className="flex items-center gap-[12px] md:gap-[15px]">
               <img
                 alt={firstBlog.author.name}
@@ -111,7 +87,7 @@ export default function Blogs({ blogitems }: MainblogProps) {
                 <a
                   target="_self"
                   className="text-theme-darkBrown text-2xl font-dm font-semibold leading-[1.3] hover:opacity-50"
-                  href={`/blogs/${blog.slug.current}`}
+                  href={`/blog/${blog.slug.current}`}
                 >
                   {blog.title}
                 </a>
@@ -119,7 +95,7 @@ export default function Blogs({ blogitems }: MainblogProps) {
                   <Link
                     target="_self"
                     className="block"
-                    href={`/blogs/${blog.slug.current}`}
+                    href={`/blog/${blog.slug.current}`}
                   >
                     <img
                       alt={blog.title}

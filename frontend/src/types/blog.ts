@@ -2,17 +2,21 @@ import { AuthorType } from "./author";
 import { ContentFilterType } from "./contentfilter";
 
 interface ContentBlock {
-  description: any[];
-  image: {
-    asset: {
-      _ref: string;
-      _type: string;
-    };
+  _key: string;
+  _type: string;
+  children?: Array<{
+    _key: string;
     _type: string;
-  } | null;
+    text: string;
+    marks: string[];
+  }>;
+  style?: string;
+  asset?: {
+    _ref: string;
+    url: string;
+  };
 }
 
-type Excerpt = any[];
 
 export interface BlogType {
   _id: string;
@@ -23,7 +27,6 @@ export interface BlogType {
   publishedDate: string;
   readTime: string;
   author: AuthorType;
-  excerpt: Excerpt;
   thumbnail: {
     asset: {
       _ref: string;
@@ -54,4 +57,32 @@ export interface BlogViewProps {
 
 export interface LatestPostProps {
   restOfRemainingBlogs: BlogType[];
+}
+
+export interface BlogPost {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+  publishedDate: string;
+  readTime: string;
+  author: AuthorType;
+  thumbnail: {
+    asset: {
+      _ref: string;
+      url: string;
+    };
+    _type: string;
+  };
+  content: ContentBlock[];
+  category: string;
+}
+
+export interface BlogPostProps {
+  blog: BlogPost;
+}
+
+export interface BlogDetailProps {
+  blogdetail: BlogPost;
 }
