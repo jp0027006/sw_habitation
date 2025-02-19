@@ -123,9 +123,7 @@ function BlogDetail({ blogdetail }: BlogDetailProps) {
                         <img
                           src={urlFor(value.asset._ref).url()}
                           loading="lazy"
-                          width={1920}
-                          height={823}
-                          className="h-auto w-full rounded-md mt-8 mb-6 cursor-zoom-in"
+                          className="rounded-md mt-8 mb-6 cursor-zoom-in"
                           alt="Post image"
                           onClick={() =>
                             openModal(urlFor(value.asset._ref).url())

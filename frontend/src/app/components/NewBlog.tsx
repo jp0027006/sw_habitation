@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 export default function NewBlog({ blogitems }: NewblogProps) {
-  console.log(blogitems);
 
   const sortedBlogs = blogitems.sort(
     (a, b) =>

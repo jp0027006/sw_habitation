@@ -78,7 +78,6 @@ const Homepage: React.FC<HomepageProps> = ({ homepageitems, blogitems }) => {
         <div className="container xl:pl-32 xl:pr-32 lg:pl-28 lg:pr-28 md:pl-24 md:pr-24 sm:pl-20 sm:pr-20">
           <MainBlogs blogitems={blogitems} />
 
-          {/* Newly Added Blogs */}
           <NewBlog blogitems={blogitems} />
         </div>
       </section>
