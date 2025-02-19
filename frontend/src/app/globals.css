@@ -13,7 +13,3 @@
 .text-theme-green {
   color: rgb(62, 255, 111, 1);
 }
-
-html {
-  scroll-behavior: smooth;
-}

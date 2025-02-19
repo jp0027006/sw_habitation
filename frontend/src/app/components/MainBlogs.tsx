@@ -1,15 +1,12 @@
 import { MainblogProps } from "@/types/blog";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
-import React from "react";
 
 export default function MainBlogs({ blogitems }: MainblogProps) {
   const firstFourBlogs = blogitems.slice(0, 4);
 
-  // Get the first blog
   const firstBlog = firstFourBlogs[0];
 
-  // Get the remaining blogs (all blogs except the first)
   const remainingBlogs = firstFourBlogs.slice(1);
   return (
     <>

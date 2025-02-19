@@ -1,6 +1,5 @@
 import { BlogType } from "./blog";
 
-
 export type SearchType = {
   enableSearch: boolean;
   searchPlaceholder?: string;

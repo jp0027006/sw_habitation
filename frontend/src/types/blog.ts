@@ -17,7 +17,6 @@ interface ContentBlock {
   };
 }
 
-
 export interface BlogType {
   _id: string;
   title: string;
@@ -59,30 +58,6 @@ export interface LatestPostProps {
   restOfRemainingBlogs: BlogType[];
 }
 
-export interface BlogPost {
-  _id: string;
-  title: string;
-  slug: {
-    current: string;
-  };
-  publishedDate: string;
-  readTime: string;
-  author: AuthorType;
-  thumbnail: {
-    asset: {
-      _ref: string;
-      url: string;
-    };
-    _type: string;
-  };
-  content: ContentBlock[];
-  category: string;
-}
-
-export interface BlogPostProps {
-  blog: BlogPost;
-}
-
 export interface BlogDetailProps {
-  blogdetail: BlogPost;
+  blogdetail: BlogType;
 }

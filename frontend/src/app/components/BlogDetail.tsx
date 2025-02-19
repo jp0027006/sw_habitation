@@ -5,6 +5,7 @@ import { PortableText } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
 import { useState } from "react";
+import Link from "next/link";
 
 const builder = imageUrlBuilder(client);
 
@@ -63,7 +64,7 @@ function BlogDetail({ blogdetail }: BlogDetailProps) {
 
         <div className="flex flex-col lg:flex-row justify-between mt-[60px] sm:mt-[80px] md:mt-[100px] lg:mt-[100px] mb-[60px] sm:mb-[80px] md:mb-[100px] lg:mb-[120px] gap-6 lg:gap-16">
           <div className="w-full lg:w-[25%] xl:w-[18.1%] sticky top-[150px] z-10 hidden lg:block px-4 lg:px-0 mt-6 lg:mt-0 self-start space-y-6">
-            <a
+            <Link
               target="_self"
               rel=""
               className="flex items-center justify-center gap-[10px] bg-gray-200 rounded-full text-sm xl:text-base text-theme-charcolBlue font-semibold px-[20px] lg:px-[30px] xl:px-[40px] py-[15px] border border-transparent hover:border hover:border-black hover:bg-transparent whitespace-nowrap"
@@ -85,7 +86,7 @@ function BlogDetail({ blogdetail }: BlogDetailProps) {
                 </svg>
               </span>
               Back to articles
-            </a>
+            </Link>
           </div>
 
           <div className="w-full lg:w-[75%] xl:w-[81.9%]">
@@ -164,7 +165,7 @@ function BlogDetail({ blogdetail }: BlogDetailProps) {
                   SW Habitation
                 </div>
                 <div className="text-theme-charcolBlue70 text-sm font-medium">
-                  Founder &amp; CEO
+                  Founder & CEO
                 </div>
               </div>
             </div>
